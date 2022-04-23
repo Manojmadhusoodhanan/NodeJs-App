@@ -8,7 +8,7 @@ pipeline {
   agent any
 
   stages {
-      stage('clone'){
+      stage('clone') {
        git credentialsId: 'Github', url: 'https://github.com/rahulwagh/spring-boot-docker.git'
    }
 

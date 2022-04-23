@@ -35,9 +35,9 @@ pipeline {
 
        stage('Deploy App') {
            steps {
-            script {
-           sh  'docker push $registry:$tag'
+              sh  'docker push $registry:$tag'
         }
+       }
 
     stage('Deploy App') {
       steps {

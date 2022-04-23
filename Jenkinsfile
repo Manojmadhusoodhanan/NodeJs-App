@@ -3,6 +3,7 @@ pipeline {
     registry = "manojmadhusoodhanan/nodejs"
     registryCredential = 'DOCKER_HUB_PASSWORD'
     dockerImage = ''
+    username = $DOCKERUSER
   }
 
   agent any
@@ -27,7 +28,7 @@ pipeline {
            steps{
              withCredentials([string(credentialsId: 'DOCKER_HUB_PASSWORD', variable: 'PASSWORD')]) {
                //sh 'docker login -u manojmadhusoodhanan -p $PASSWORD'
-               sh 'echo "$PASSWORD" | docker login --username $DOCKERUSER --password-stdin'
+               sh 'echo "$PASSWORD" | docker login -u $username --password-stdin'
            } 
         } 
      }

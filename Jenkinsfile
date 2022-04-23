@@ -25,13 +25,13 @@ pipeline {
 
        stage("Docker Login"){
            steps{
-            // withCredentials([string(credentialsId: 'DOCKER_HUB_PASSWORD', variable: 'PASSWORD')])
-             //withCredentials([file(credentialsId: 'DOCKERUSER', variable: 'User')]) {
+             //withCredentials([string(credentialsId: 'DOCKER_HUB_PASSWORD', variable: 'PASSWORD')])
+             //withCredentials([string(credentialsId: 'DOCKERUSER', variable: 'User')]) {
                 
                //sh 'docker login -u manojmadhusoodhanan -p $PASSWORD'
                withCredentials([
-                   usernamePassword(credentialsId: 'DOCKER_HUB_PASSWORD', variable: 'PASSWORD'),
-                   usernamePassword(credentialsId: 'DOCKERUSER', variable: 'User')]){
+                   string(credentialsId: 'DOCKER_HUB_PASSWORD', variable: 'PASSWORD'),
+                   string(credentialsId: 'DOCKERUSER', variable: 'User')]){
                sh 'echo "$PASSWORD" | docker login -u $User --password-stdin'
            } 
         } 

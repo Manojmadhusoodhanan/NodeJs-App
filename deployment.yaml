@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: hello-world-container
-        image: kesav778/nodejs_hello:latest
+        image: manojmadhusoodhanan/nodejs:latest
         imagePullPolicy: Always
         ports:
         - containerPort: 3000

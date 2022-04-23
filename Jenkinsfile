@@ -10,8 +10,10 @@ pipeline {
   stages {
 
       stage("Clone") {
-       git credentialsId: 'Github', url: 'https://github.com/rahulwagh/spring-boot-docker.git'
+        steps {
+          git credentialsId: 'Github', url: 'https://github.com/rahulwagh/spring-boot-docker.git'
      }
+      }
 
       stage('Git_Clone') {
       steps {

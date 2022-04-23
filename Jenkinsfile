@@ -1,8 +1,7 @@
 pipeline {
     environment {
     registry = "manojmadhusoodhanan/nodejs"
-    registryCredential = 'DOCKER_HUB_PASSWORD'
-    dockerImage = ''
+    tag = "latest"
   }
 
   agent any
@@ -19,16 +18,12 @@ pipeline {
              sh 'docker version'
              sh 'docker build -t $registry .'
              sh 'docker image list'
-             sh 'docker tag $registry $registry:latest'
+             sh 'docker tag $registry $registry:$tag'
             }
       } 
 
        stage("Docker Login"){
            steps{
-             //withCredentials([string(credentialsId: 'DOCKER_HUB_PASSWORD', variable: 'PASSWORD')])
-             //withCredentials([string(credentialsId: 'DOCKERUSER', variable: 'User')]) {
-                
-               //sh 'docker login -u manojmadhusoodhanan -p $PASSWORD'
                withCredentials([
                    string(credentialsId: 'DOCKER_HUB_PASSWORD', variable: 'PASSWORD'),
                    string(credentialsId: 'DOCKERUSER', variable: 'USER')]){
@@ -36,6 +31,13 @@ pipeline {
            } 
         } 
      }
+
+
+       stage('Deploy App') {
+           steps {
+            script {
+           sh  'docker push $registry:$tag'
+        }
 
     stage('Deploy App') {
       steps {

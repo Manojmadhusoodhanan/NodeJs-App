@@ -8,16 +8,9 @@ pipeline {
   agent any
 
   stages {
-
-      stage("Clone") {
-        steps {
-          git credentialsId: 'Github', url: 'https://github.com/rahulwagh/spring-boot-docker.git'
-     }
-      }
-
       stage('Git_Clone') {
-      steps {
-        git credentialsId: 'Github', url: 'https://github.com/manojmadhusoodhanan/NodeJs-App.git'
+        steps {
+         git credentialsId: 'Github', url: 'https://github.com/manojmadhusoodhanan/NodeJs-App.git'
       }
     }
     

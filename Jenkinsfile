@@ -1,7 +1,7 @@
 pipeline {
     environment {
     registry = "manojmadhusoodhanan/nodejs"
-    registryCredential = 'dockerhub'
+    registryCredential = 'DOCKER_HUB_PASSWORD'
     dockerImage = ''
   }
 
@@ -23,18 +23,12 @@ pipeline {
             }
       } 
 
-      stage("Docker Login"){
-        steps {
-           withCredentials([string(credentialsId: 'DOCKER_HUB_PASSWORD', variable: 'PASSWORD')]) {
-              sh 'docker login -u manojpillai.mail -p $PASSWORD'
-            }
-         } 
-      }
-
       stage("Push image") {
             steps {
                 script {
-                  sh  'docker push $registry:latest'
+                    docker.withRegistry( '', registryCredential ) {
+                    dockerImage.push()
+                    }
                 }
             }
         }

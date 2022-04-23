@@ -9,7 +9,7 @@ pipeline {
 
   stages {
 
-      stage('clone') {
+      stage("Clone") {
        git credentialsId: 'Github', url: 'https://github.com/rahulwagh/spring-boot-docker.git'
      }
 

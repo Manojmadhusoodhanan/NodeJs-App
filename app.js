@@ -6,7 +6,7 @@ const app = express();
 const server = http.createServer(app);
 
 app.get('/', function(req,res){
-        res.send("Hello World");
+        res.send("Welcome to NavVis");
 });
 
 server.listen(3000, function(){

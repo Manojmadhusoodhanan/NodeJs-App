@@ -23,15 +23,13 @@ pipeline {
             }
       } 
 
-      stage("Push image") {
-            steps {
-                script {
-                    docker.withRegistry( '', registryCredential ) {
-                    dockerImage.push()
-                    }
-                }
-            }
-        }
+       stage("Docker Login"){
+           steps{
+             withCredentials([string(credentialsId: 'DOCKER_HUB_PASSWORD', variable: 'PASSWORD')]) {
+               sh 'docker login -u manojmadhusoodhanan -p $PASSWORD'
+           } 
+        } 
+     }
 
     stage('Deploy App') {
       steps {

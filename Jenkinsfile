@@ -3,7 +3,7 @@ pipeline {
     registry = "manojmadhusoodhanan/nodejs"
     registryCredential = 'DOCKER_HUB_PASSWORD'
     dockerImage = ''
-    username = $DOCKERUSER
+    username = "$DOCKERUSER"
   }
 
   agent any

@@ -14,13 +14,12 @@ pipeline {
       }
     }
     
-      stage("Build image") {
-            steps {
-                script {
-                  dockerImage = docker.build registry + ":latest"
-                }
-            }
-        }
+      stage("Docker build"){
+        sh 'docker version'
+        sh 'docker build -t $registry .'
+        sh 'docker image list'
+        sh 'docker tag $registry:nodelatest'
+    } 
     
       stage("Push image") {
             steps {

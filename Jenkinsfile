@@ -32,7 +32,7 @@ pipeline {
       stage("Push image") {
             steps {
                 script {
-                    docker push $registry:latest
+                  sh  'docker push $registry:latest'
                 }
             }
         }

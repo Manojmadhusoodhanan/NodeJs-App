@@ -1,0 +1,27 @@
+{
+  "name": "nodejs-helloworld",
+  "version": "1.0.0",
+  "description": "Hellow world using nodejs",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Manojmadhusoodhanan/NodeJs-App.git"
+  },
+  "keywords": [
+    "node",
+    "docker",
+    "dockerfile"
+  ],
+  "author": "Manojmadhusoodhanan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Manojmadhusoodhanan/NodeJs-App/issues"
+  },
+  "homepage": "https://github.com/Manojmadhusoodhanan/NodeJs-App#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

@@ -16,7 +16,6 @@ pipeline {
       stage("Docker build"){
           steps {
              sh 'docker version'
-             sh 'docker rmi -f $(docker images -aq)'
              sh 'docker build -t $registry .'
              sh 'docker image list'
              sh 'docker tag $registry $registry:$tag'

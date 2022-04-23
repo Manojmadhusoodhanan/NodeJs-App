@@ -19,7 +19,7 @@ pipeline {
              sh 'docker version'
              sh 'docker build -t $registry .'
              sh 'docker image list'
-             sh 'docker tag $registry:nodelatest'
+             sh 'docker tag $registry $registry:latest'
             }
       } 
     

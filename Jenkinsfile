@@ -22,13 +22,17 @@ pipeline {
              sh 'docker tag $registry $registry:latest'
             }
       } 
-    
+
+      stage("Docker Login"){
+        withCredentials([string(credentialsId: 'DOCKER_HUB_PASSWORD', variable: 'PASSWORD')]) {
+            sh 'docker login -u manojpillai.mail -p $PASSWORD'
+        }
+    } 
+
       stage("Push image") {
             steps {
                 script {
-                    docker.withRegistry( '', registryCredential ) {
-                    dockerImage.push()
-                    }
+                    docker push $registry:latest
                 }
             }
         }

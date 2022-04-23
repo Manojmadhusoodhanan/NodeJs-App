@@ -33,7 +33,7 @@ pipeline {
      }
 
 
-       stage('Deploy App') {
+       stage('Docker push') {
            steps {
               sh  'docker push $registry:$tag'
         }

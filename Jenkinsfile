@@ -24,10 +24,12 @@ pipeline {
       } 
 
       stage("Docker Login"){
-        withCredentials([string(credentialsId: 'DOCKER_HUB_PASSWORD', variable: 'PASSWORD')]) {
-            sh 'docker login -u manojpillai.mail -p $PASSWORD'
-        }
-    } 
+        steps {
+           withCredentials([string(credentialsId: 'DOCKER_HUB_PASSWORD', variable: 'PASSWORD')]) {
+              sh 'docker login -u manojpillai.mail -p $PASSWORD'
+            }
+         } 
+      }
 
       stage("Push image") {
             steps {

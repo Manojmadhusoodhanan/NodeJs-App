@@ -15,11 +15,13 @@ pipeline {
     }
     
       stage("Docker build"){
-        sh 'docker version'
-        sh 'docker build -t $registry .'
-        sh 'docker image list'
-        sh 'docker tag $registry:nodelatest'
-    } 
+          steps {
+             sh 'docker version'
+             sh 'docker build -t $registry .'
+             sh 'docker image list'
+             sh 'docker tag $registry:nodelatest'
+            }
+      } 
     
       stage("Push image") {
             steps {

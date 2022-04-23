@@ -31,8 +31,8 @@ pipeline {
                //sh 'docker login -u manojmadhusoodhanan -p $PASSWORD'
                withCredentials([
                    string(credentialsId: 'DOCKER_HUB_PASSWORD', variable: 'PASSWORD'),
-                   string(credentialsId: 'DOCKERUSER', variable: 'User')]){
-               sh 'echo "$PASSWORD" | docker login -u $User --password-stdin'
+                   string(credentialsId: 'DOCKERUSER', variable: 'USER')]){
+               sh 'echo "$PASSWORD" | docker login -u $USER --password-stdin'
            } 
         } 
      }

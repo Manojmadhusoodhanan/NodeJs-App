@@ -9,9 +9,9 @@ pipeline {
 
   stages {
 
-    stage('Checkout Source') {
+    stage('Git Clone') {
       steps {
-        git 'https://github.com/manojmadhusoodhanan/NodeJs-App.git'
+        git credentialsId: 'Github', url: 'https://github.com/manojmadhusoodhanan/NodeJs-App.git'
       }
     }
     

@@ -10,7 +10,7 @@ pipeline {
   stages {
       stage('Git_Clone') {
         steps {
-         git credentialsId: 'Github', url: 'https://github.com/manojmadhusoodhanan/NodeJs-App.git'
+          git credentialsId: 'Github', url: 'https://github.com/manojmadhusoodhanan/NodeJs-App.git'
       }
     }
     

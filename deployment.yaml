@@ -30,7 +30,7 @@ metadata:
 spec:
   selector:
     app: hello-world
-  type: NodePort
+  type: LoadBalancer
   ports:
   - nodePort: 31113
     port: 3000

@@ -6,7 +6,7 @@ const app = express();
 const server = http.createServer(app);
 
 app.get('/', function(req,res){
-        res.send("Welcome");
+        res.send("Welcome NVS" "https://google.com");
 });
 
 server.listen(3000, function(){

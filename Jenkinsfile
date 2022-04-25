@@ -43,7 +43,7 @@ pipeline {
       steps {
         script {
           //kubernetesDeploy(configs: "deployment.yaml", kubeconfigId: "k8s")
-            sh 'echo Welcome to K8s Deployment'
+            sh 'echo Welcome to K8s Deployments'
         }
       }
     }
